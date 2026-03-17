@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Yanis Wandianga — Portfolio</title>
+  <link href="https://api.fontshare.com/v2/css?f[]=programme@300,400,500,600,700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #000000;
+      --text-primary: #f0f0f0;
+      --text-secondary: #666666;
+      --border: #1a1a1a;
+      --tag-bg: #0f0f0f;
+      --hover-bg: #f0f0f0;
+      --hover-text: #000000;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Programme', 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.7;
+      min-height: 100vh;
+      opacity: 0;
+      animation: fadeInPage 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes fadeInPage {
+      to { opacity: 1; }
+    }
+
+    /* ── HEADER ── */
+    header {
+      padding: 100px 24px 72px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-family: 'Programme', sans-serif;
+      font-size: clamp(3rem, 6vw, 4.4rem);
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.06;
+      margin-bottom: 24px;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+      opacity: 0;
+      transform: translateY(24px);
+      animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+    }
+
+    .subtitle {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+      opacity: 0;
+      transform: translateY(16px);
+      animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+    }
+
+    .header-meta {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      opacity: 0;
+      transform: translateY(16px);
+      animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+    }
+
+    .meta-tag {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      background: var(--tag-bg);
+      padding: 6px 14px;
+      border-radius: 2px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: 1px solid var(--border);
+    }
+
+    @keyframes slideUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      max-width: 800px;
+      margin: 0 auto 52px;
+      padding: 0 24px;
+      opacity: 0;
+      animation: fadeIn 0.6s ease 0.5s forwards;
+    }
+    .divider hr {
+      border: none;
+      border-top: 1px solid var(--border);
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    /* ── SECTION TITLE ── */
+    .section-label {
+      max-width: 800px;
+      margin: 0 auto 28px;
+      padding: 0 24px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      opacity: 0;
+      animation: fadeIn 0.6s ease 0.55s forwards;
+    }
+
+    /* ── CARDS GRID ── */
+    .grid {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: grid;
+      gap: 10px;
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 24px 26px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      text-decoration: none;
+      color: inherit;
+      opacity: 0;
+      transform: translateY(14px);
+      animation: slideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      transition:
+        background 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .card:nth-child(1) { animation-delay: 0.6s; }
+    .card:nth-child(2) { animation-delay: 0.68s; }
+    .card:nth-child(3) { animation-delay: 0.76s; }
+    .card:nth-child(4) { animation-delay: 0.84s; }
+    .card:nth-child(5) { animation-delay: 0.92s; }
+    .card:nth-child(6) { animation-delay: 1.0s; }
+    .card:nth-child(7) { animation-delay: 1.08s; }
+
+    .card:hover {
+      background: var(--hover-bg);
+      border-color: var(--hover-bg);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(255,255,255,0.06);
+    }
+
+    .card:hover .card-title  { color: var(--hover-text); }
+    .card:hover .card-desc   { color: rgba(0,0,0,0.48); }
+    .card:hover .card-icon   { background: rgba(0,0,0,0.07); }
+    .card:hover .card-number { color: rgba(0,0,0,0.18); }
+    .card:hover .card-arrow  { opacity: 1; color: var(--hover-text); transform: translateX(6px); }
+
+    .card-number {
+      font-size: 10px;
+      font-weight: 700;
+      color: #282828;
+      letter-spacing: 0.06em;
+      min-width: 26px;
+      text-align: right;
+      transition: color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      flex-shrink: 0;
+      align-self: flex-start;
+      padding-top: 3px;
+    }
+
+    .card-icon {
+      font-size: 1.2rem;
+      min-width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--tag-bg);
+      border-radius: 3px;
+      flex-shrink: 0;
+      transition: background 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .card-body { flex: 1; }
+
+    .card-title {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+      line-height: 1.4;
+      letter-spacing: 0.01em;
+      transition: color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .card-desc {
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      font-weight: 400;
+      transition: color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .card-arrow {
+      font-size: 1rem;
+      color: var(--text-primary);
+      opacity: 0;
+      transition:
+        opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+        color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      flex-shrink: 0;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      max-width: 800px;
+      margin: 80px auto 0;
+      padding: 28px 24px 56px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      opacity: 0;
+      animation: fadeIn 0.6s ease 1.1s forwards;
+    }
+
+    .footer-name {
+      font-family: 'Programme', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-primary);
+    }
+
+    .footer-copy {
+      font-size: 0.72rem;
+      color: var(--text-secondary);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 580px) {
+      header { padding: 64px 20px 52px; }
+      .card  { padding: 18px 16px; gap: 14px; }
+      .card-number { display: none; }
+      footer { padding: 24px 20px 44px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Yanis<br/>Wandianga</h1>
+    <p class="subtitle">Étudiant en Infocom</p>
+    <div class="header-meta">
+      <span class="meta-tag">📍 Bordeaux</span>
+      
+    </div>
+  </header>
+
+  <div class="divider"><hr/></div>
+
+  <p class="section-label">Travaux sélectionnés</p>
+
+  <main class="grid">
+
+    <a class="card" href="https://drive.google.com/drive/folders/1qS15zWmqZtMwWwPV0EL4RLurCcl7lksp" target="_blank" rel="noopener">
+      <span class="card-number">01</span>
+      <div class="card-icon"><span>🎬</span></div>
+      <div class="card-body">
+        <div class="card-title">Projets vidéos personnels</div>
+        <div class="card-desc">Montages entièrement réalisés sur After Effects et publiés sur mon compte TikTok (77k abonnés).</div>
+      </div>
+      <span class="card-arrow">→</span>
+    </a>
+
+    <a class="card" href="https://www.tiktok.com/@astromagazine_" target="_blank" rel="noopener">
+      <span class="card-number">02</span>
+      <div class="card-icon"><span>🎥</span></div>
+      <div class="card-body">
+        <div class="card-title">45 vidéos pour AstroMagazine</div>
+        <div class="card-desc">Contenu entièrement réalisé : écriture, tournage et montage de chaque vidéo.</div>
+      </div>
+      <span class="card-arrow">→</span>
+    </a>
+
+    <a class="card" href="https://france3-regions.franceinfo.fr/nouvelle-aquitaine/gironde/bordeaux/ubb-face-a-la-rochelle-il-faut-qu-on-gagne-ce-match-les-bordelais-prets-a-arracher-la-victoire-face-a-l-adversaire-rochelais-2967905.html" target="_blank" rel="noopener">
+      <span class="card-number">03</span>
+      <div class="card-icon"><span>✍️</span></div>
+      <div class="card-body">
+        <div class="card-title">Article : UBB face à La Rochelle — France 3</div>
+        <div class="card-desc">Reportage terrain, recherche et rédaction publié sur France 3 Nouvelle-Aquitaine.</div>
+      </div>
+      <span class="card-arrow">→</span>
+    </a>
+
+    <a class="card" href="https://drive.google.com/drive/folders/1-_opTZb8EQYUt6lfJIaFmOUHuye5IF4R" target="_blank" rel="noopener">
+      <span class="card-number">04</span>
+      <div class="card-icon"><span>📷</span></div>
+      <div class="card-body">
+        <div class="card-title">Photos &amp; vidéos de reportages</div>
+        <div class="card-desc"> Archives visuelles des différents reportages auxquels j’ai pu assister et participer.</div>
+      </div>
+      <span class="card-arrow">→</span>
+    </a>
+
+    <a class="card" href="https://drive.google.com/file/d/1n9CxPjbqLnM80-SKXryX5Ixx8bfrz_9Z/view?usp=sharing" target="_blank" rel="noopener">
+      <span class="card-number">05</span>
+      <div class="card-icon"><span>🔍</span></div>
+      <div class="card-body">
+        <div class="card-title">MOOK d'enquêtes OSINT</div>
+        <div class="card-desc">Magazine d'enquêtes menées via des méthodes OSINT : sourcing, vérification et investigation en ligne.</div>
+      </div>
+      <span class="card-arrow">→</span>
+    </a>
+
+    <a class="card" href="https://drive.google.com/file/d/1cDXDxkU3TS1__TMQCm3Qw_4GuoUMpxwg/view?usp=sharing" target="_blank" rel="noopener">
+      <span class="card-number">06</span>
+      <div class="card-icon"><span>📊</span></div>
+      <div class="card-body">
+        <div class="card-title">Désinformation climatique dans les médias audiovisuels</div>
+        <div class="card-desc">Recherches, tris et visualisations de données sur la désinformation climatique dans les médias audiovisuels.</div>
+      </div>
+      <span class="card-arrow">→</span>
+    </a>
+
+    <a class="card" href="https://drive.google.com/file/d/1y72zocbW5oMaBqvjB9GV2Y3_7D8TMLpC/view?usp=sharing" target="_blank" rel="noopener">
+      <span class="card-number">07</span>
+      <div class="card-icon"><span>📺</span></div>
+      <div class="card-body">
+        <div class="card-title">Exercice de publicité pour Doritos</div>
+        <div class="card-desc">Storyboard, tournage et montage autonome.</div>
+      </div>
+      <span class="card-arrow">→</span>
+    </a>
+
+  </main>
+
+  <footer>
+    <span class="footer-name">Yanis Wandianga</span>
+    <span class="footer-copy">© 2026 · Tous droits réservés</span>
+  </footer>
+
+</body>
+</html>
